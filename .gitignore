@@ -1,10 +1,10 @@
 # Ignore everything
-*
+/*
 
 # Not these directories
+!.gitignore
 !config/
 !src/
 
 # Not these files
 !pom.xml
-!.gitignore
