@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# Not these directories
+!config/
+!src/
+
+# Not these files
+!pom.xml
+!.gitignore
