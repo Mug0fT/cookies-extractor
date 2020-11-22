@@ -1,9 +1,10 @@
 
 <configuration>
     <website name="google_recaptcha_demo_selenium">
-        <сookiesGenerator config-class="com.mugoft.extractors.CookiesExtractorSeleniumChrome">
-            <config-constrarg config-value="C:\chromedriver_win32\chromedriver.exe" config-type="java.lang.String"/>
-            <config-constrarg config-value="https%3A%2F%2Fwww.google.com%2Frecaptcha%2Fapi2%2Fdemo" config-type="java.lang.String"/>
+        <сookiesGenerator config-class="com.mugoft.extractors.CookiesExtractorSelenium">
+            <config-constrarg config-value="CHROME"/>
+            <config-constrarg config-value="C:\chromedriver_win32\chromedriver.exe"/>
+            <config-constrarg config-value="https%3A%2F%2Fwww.google.com%2Frecaptcha%2Fapi2%2Fdemo"/>
         </сookiesGenerator>
 
         <outputProvider config-class="com.mugoft.storageproviders.FileSystemStorageProvider">
@@ -11,7 +12,8 @@
         </outputProvider>
     </website>
     <website name="wikipedia_selenium">
-        <сookiesGenerator config-class="com.mugoft.extractors.CookiesExtractorSeleniumChrome">
+        <сookiesGenerator config-class="com.mugoft.extractors.CookiesExtractorSelenium">
+            <config-constrarg config-value="CHROME"/>
             <config-constrarg config-value="C:\chromedriver_win32\chromedriver.exe"/>
             <config-constrarg config-value="https%3A%2F%2Fwww.wikipedia.org%2F"/>
         </сookiesGenerator>
@@ -25,6 +27,15 @@
         </сookiesGenerator>
         <outputProvider config-class="com.mugoft.storageproviders.FileSystemStorageProvider">
             <config-constrarg config-value="C:\Project\cookies\wikipedia_mainpage_singlerequest\cookies.json"/>
+        </outputProvider>
+    </website>
+    <website name="wikipedia_local">
+        <сookiesGenerator config-class="com.mugoft.extractors.CookiesExtractorLocalChrome">
+            <config-constrarg config-value="wikipedia.org"/>
+            <config-constrarg config-value="C:\Users\Mug0fT\AppData\Local\Google\Chrome\User Data\Default\Cookies"/>
+        </сookiesGenerator>
+        <outputProvider config-class="com.mugoft.storageproviders.FileSystemStorageProvider">
+            <config-constrarg config-value="C:\Project\cookies\wikipedia_local\cookies.json"/>
         </outputProvider>
     </website>
 </configuration>

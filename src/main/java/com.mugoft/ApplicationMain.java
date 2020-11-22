@@ -1,6 +1,5 @@
 package com.mugoft;
 
-import com.mugoft.extractors.CookiesExtractorSeleniumChrome;
 import com.mugoft.extractors.common.CookiesExtractor;
 import com.mugoft.storageproviders.common.StorageProvider;
 import org.apache.commons.configuration2.XMLConfiguration;
@@ -43,22 +42,22 @@ public class ApplicationMain {
          */
         String cookiesJson = null;
         try {
-            System.out.println(cookiesExtractor.start());
+            cookiesExtractor.start();
             System.out.println("After finished - press any key to start reading and saving process.");
             SCANNER.nextLine();
             cookiesJson = cookiesExtractor.readCookies();
         } catch (Exception ex) {
-            System.out.println("No cookies are found!");
+            System.out.println("Error during starting and reading the cookies!");
             throw ex;
         } finally {
-            System.out.println(cookiesExtractor.finish());
+            cookiesExtractor.finish();
         }
 
         /**
          * store cookies if exist
          */
         if(cookiesJson == null) {
-            System.out.println("No cookies are found in browser!");
+            System.out.println("No cookies are found!");
         } else {
             try {
                 outputProvider.storeCookies(cookiesJson);

@@ -35,19 +35,17 @@ public class CookiesExtractorSingleRequest extends CookiesExtractor {
      *
      * @return status message to display for user
      */
-    public String start() throws Exception {
-        String message = "";
+    public void start() throws Exception {
         GetMethod method = new GetMethod(url);
         try{
             client.executeMethod(method);
             cookies = Arrays.asList(client.getState().getCookies());
-            message = "Response with cookies was successfully received";
+            System.out.println("Response with cookies was successfully received");
         } catch(Exception e) {
-            message = "Error during sending request to " + url;
+            System.out.println("Error during sending request to " + url);
             throw e;
         } finally {
             method.releaseConnection();
-            return message;
         }
     }
 
@@ -64,12 +62,9 @@ public class CookiesExtractorSingleRequest extends CookiesExtractor {
 
     /**
      * Clears stored cookies
-     *
-     * @return status message to display for user TODO: can be replaced by status codes if will be necessary
      */
-    public String finish() {
+    public void finish() {
         cookies = Arrays.asList();
-        String message = "Response is deleted";
-        return message;
+        System.out.println("Cookies response is deleted");
     }
 }

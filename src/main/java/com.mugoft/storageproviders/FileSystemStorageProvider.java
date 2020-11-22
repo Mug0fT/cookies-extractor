@@ -29,6 +29,7 @@ public class FileSystemStorageProvider extends StorageProvider {
     public void storeCookies(String jsonCookies) throws Exception {
         createDirIfNotExist();
         try (Writer writer = new FileWriter(outPath)) {
+            System.out.println("Storing cookies under " + outPath);
             writer.write(jsonCookies);
         }
     }

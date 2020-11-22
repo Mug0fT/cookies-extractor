@@ -5,9 +5,8 @@ public abstract class CookiesExtractor {
     /**
      * Start cookies extraction.
      *
-     * @return status message to display for user. TODO: can be replaced by status codes if will be necessary
      */
-    public abstract String start() throws Exception;
+    public abstract void start() throws Exception;
 
     /**
      *
@@ -20,5 +19,5 @@ public abstract class CookiesExtractor {
      *
      * @return status message to display for user TODO: can be replaced by status codes if will be necessary
      */
-    public abstract String finish();
+    public abstract void finish();
 }
