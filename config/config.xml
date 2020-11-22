@@ -32,7 +32,7 @@
     <website name="wikipedia_local">
         <сookiesGenerator config-class="com.mugoft.extractors.CookiesExtractorLocalChrome">
             <config-constrarg config-value="wikipedia.org"/>
-            <config-constrarg config-value="C:\Users\Mug0fT\AppData\Local\Google\Chrome\User Data\Default\Cookies"/>
+            <config-constrarg config-value="C:\Users\mugoft\AppData\Local\Google\Chrome\User Data\Default\Cookies"/> <!-- For path to cookies file check https://chromium.googlesource.com/chromium/src/+/master/docs/user_data_dir.md -->
         </сookiesGenerator>
         <outputProvider config-class="com.mugoft.storageproviders.FileSystemStorageProvider">
             <config-constrarg config-value="C:\Project\cookies\wikipedia_local\cookies.json"/>

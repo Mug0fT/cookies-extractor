@@ -9,7 +9,6 @@ import org.apache.commons.httpclient.Cookie;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 import java.util.LinkedList;
@@ -25,12 +24,6 @@ public class CookiesExtractorLocalChrome extends CookiesExtractor {
     private final String hostKey;
     private final String pathToCookies;
     private Connection conn = null;
-
-
-    public CookiesExtractorLocalChrome(String hostKey) throws UnsupportedEncodingException {
-        this.hostKey = java.net.URLDecoder.decode(hostKey, StandardCharsets.UTF_8.name());
-        pathToCookies = "";// TODO: detect auto
-    }
 
     public CookiesExtractorLocalChrome(String hostKey, String pathToCookies) throws UnsupportedEncodingException {
         this.hostKey = java.net.URLDecoder.decode(hostKey, StandardCharsets.UTF_8.name());
