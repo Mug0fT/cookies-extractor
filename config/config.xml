@@ -1,22 +1,30 @@
 
 <configuration>
-    <website name="google_recaptcha_demo">
-        <сookiesGenerator config-class="com.mugoft.CookiesExtractorSeleniumChrome">
+    <website name="google_recaptcha_demo_selenium">
+        <сookiesGenerator config-class="com.mugoft.extractors.CookiesExtractorSeleniumChrome">
             <config-constrarg config-value="C:\chromedriver_win32\chromedriver.exe" config-type="java.lang.String"/>
             <config-constrarg config-value="https%3A%2F%2Fwww.google.com%2Frecaptcha%2Fapi2%2Fdemo" config-type="java.lang.String"/>
         </сookiesGenerator>
 
         <outputProvider config-class="com.mugoft.storageproviders.FileSystemStorageProvider">
-                <config-constrarg config-value="C:\Project\cookies\google_recaptcha_demo\cookies.json" config-type="java.lang.String"/>
+                <config-constrarg config-value="C:\Project\cookies\google_recaptcha_demo_selenium\cookies.json" config-type="java.lang.String"/>
         </outputProvider>
     </website>
-    <website name="wikipedia">
-        <сookiesGenerator config-class="com.mugoft.CookiesExtractorSeleniumChrome">
+    <website name="wikipedia_selenium">
+        <сookiesGenerator config-class="com.mugoft.extractors.CookiesExtractorSeleniumChrome">
             <config-constrarg config-value="C:\chromedriver_win32\chromedriver.exe"/>
             <config-constrarg config-value="https%3A%2F%2Fwww.wikipedia.org%2F"/>
         </сookiesGenerator>
         <outputProvider config-class="com.mugoft.storageproviders.FileSystemStorageProvider">
-            <config-constrarg config-value="C:\Project\cookies\wikipedia\cookies.json"/>
+            <config-constrarg config-value="C:\Project\cookies\wikipedia_selenium\cookies.json"/>
+        </outputProvider>
+    </website>
+    <website name="wikipedia_mainpage_singlerequest">
+        <сookiesGenerator config-class="com.mugoft.extractors.CookiesExtractorSingleRequest">
+            <config-constrarg config-value="https%3A%2F%2Fwww.wikipedia.org%2F"/>
+        </сookiesGenerator>
+        <outputProvider config-class="com.mugoft.storageproviders.FileSystemStorageProvider">
+            <config-constrarg config-value="C:\Project\cookies\wikipedia_mainpage_singlerequest\cookies.json"/>
         </outputProvider>
     </website>
 </configuration>

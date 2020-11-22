@@ -1,5 +1,7 @@
 package com.mugoft;
 
+import com.mugoft.extractors.CookiesExtractorSeleniumChrome;
+import com.mugoft.extractors.common.CookiesExtractor;
 import com.mugoft.storageproviders.common.StorageProvider;
 import org.apache.commons.configuration2.XMLConfiguration;
 import org.apache.commons.configuration2.beanutils.BeanDeclaration;
@@ -17,7 +19,7 @@ public class ApplicationMain {
 
     final static String CONFIG_PATH = "config/config.xml";
 
-    static CookiesExtractorSeleniumChrome cookiesGenerator;
+    static CookiesExtractor cookiesExtractor;
 
     static StorageProvider outputProvider;
 
@@ -25,7 +27,7 @@ public class ApplicationMain {
     public static void main(String[] args) throws Exception {
 
         /**
-         * Create {@link cookiesGenerator} and {@link outputProvider} based on the configuration file
+         * Create {@link cookiesExtractor} and {@link outputProvider} based on the configuration file
          */
         try {
             loadConfigurations();
@@ -41,16 +43,15 @@ public class ApplicationMain {
          */
         String cookiesJson = null;
         try {
-            cookiesGenerator.start();
-            System.out.println("Cookies generation is started. Please navigate in browser to the requested page, and accept all cookies. \n" +
-                    "After finished - press any key.");
+            System.out.println(cookiesExtractor.start());
+            System.out.println("After finished - press any key to start reading and saving process.");
             SCANNER.nextLine();
-            cookiesJson = cookiesGenerator.readCookies();
+            cookiesJson = cookiesExtractor.readCookies();
         } catch (Exception ex) {
-            System.out.println("No cookies are found in browser!");
+            System.out.println("No cookies are found!");
             throw ex;
         } finally {
-            cookiesGenerator.quit();
+            System.out.println(cookiesExtractor.finish());
         }
 
         /**
@@ -79,7 +80,7 @@ public class ApplicationMain {
             Integer websiteConfigIndex = selectWebsite(websites);
 
             BeanDeclaration beanCookiesGenerator = new XMLBeanDeclaration(config, "website("+websiteConfigIndex +").сookiesGenerator"); //@name='google'
-            cookiesGenerator = (CookiesExtractorSeleniumChrome) BeanHelper.INSTANCE.createBean(beanCookiesGenerator);
+            cookiesExtractor = (CookiesExtractor) BeanHelper.INSTANCE.createBean(beanCookiesGenerator);
 
             BeanDeclaration beanOutputProvider = new XMLBeanDeclaration(config, "website("+websiteConfigIndex +").outputProvider");
             outputProvider = (StorageProvider) BeanHelper.INSTANCE.createBean(beanOutputProvider);
