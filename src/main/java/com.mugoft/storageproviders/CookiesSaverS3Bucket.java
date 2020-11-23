@@ -31,7 +31,7 @@ public class CookiesSaverS3Bucket extends CookiesSaver {
         try {
             AmazonS3 s3client = AmazonS3ClientBuilder.standard().build();
             if (!(s3client.doesBucketExistV2(bucketName))) {
-                throw new AmazonS3Exception("S3 bucket doesn't exist or you don't have access to it: " + outPath);
+                throw new AmazonS3Exception("S3 bucket doesn't exist or you don't have access to it: " + bucketName);
             }
 
             ObjectMetadata metadata = new ObjectMetadata();

@@ -35,4 +35,21 @@ public class CookiesConverterHelper {
         });
         return cookiesRet;
     }
+
+    public static List<org.openqa.selenium.Cookie> ApacheCookiesToSileniumCookies(List<Cookie> cookiesApache) {
+        List<org.openqa.selenium.Cookie> cookiesRet = new LinkedList<>();
+        cookiesApache.stream().forEach(cookieApache -> {
+            org.openqa.selenium.Cookie cookieRet = new org.openqa.selenium.Cookie(
+                    cookieApache.getName(),
+                    cookieApache.getValue(),
+                    cookieApache.getDomain(),
+                    cookieApache.getPath(),
+                    cookieApache.getExpiryDate(),
+                    cookieApache.getSecure(),
+                    false
+            );
+            cookiesRet.add(cookieRet);
+        });
+        return cookiesRet;
+    }
 }
