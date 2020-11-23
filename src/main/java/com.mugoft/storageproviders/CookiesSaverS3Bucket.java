@@ -7,7 +7,7 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.AmazonS3Exception;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.mugoft.storageproviders.common.StorageProvider;
+import com.mugoft.storageproviders.common.CookiesSaver;
 import org.apache.commons.io.IOUtils;
 
 import java.nio.charset.StandardCharsets;
@@ -18,10 +18,10 @@ import java.nio.charset.StandardCharsets;
  * @created 22/11/2020 - 19:36
  * @project cookiesextractor
  */
-public class S3BucketStorageProvider extends StorageProvider {
+public class CookiesSaverS3Bucket extends CookiesSaver {
     String bucketName;
 
-    public S3BucketStorageProvider(String outPath, String bucketName) {
+    public CookiesSaverS3Bucket(String outPath, String bucketName) {
         super(outPath);
         this.bucketName = bucketName;
     }

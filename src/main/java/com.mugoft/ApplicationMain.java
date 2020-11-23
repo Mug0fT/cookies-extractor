@@ -1,7 +1,7 @@
 package com.mugoft;
 
 import com.mugoft.extractors.common.CookiesExtractor;
-import com.mugoft.storageproviders.common.StorageProvider;
+import com.mugoft.storageproviders.common.CookiesSaver;
 import org.apache.commons.configuration2.XMLConfiguration;
 import org.apache.commons.configuration2.beanutils.BeanDeclaration;
 import org.apache.commons.configuration2.beanutils.BeanHelper;
@@ -26,7 +26,7 @@ public class ApplicationMain {
 
     static CookiesExtractor cookiesExtractor;
 
-    static StorageProvider outputProvider;
+    static CookiesSaver outputProvider;
 
 
     public static void main(String[] args) throws Exception {
@@ -88,7 +88,7 @@ public class ApplicationMain {
             cookiesExtractor = (CookiesExtractor) BeanHelper.INSTANCE.createBean(beanCookiesGenerator);
 
             BeanDeclaration beanOutputProvider = new XMLBeanDeclaration(config, "website("+websiteConfigIndex +").outputProvider");
-            outputProvider = (StorageProvider) BeanHelper.INSTANCE.createBean(beanOutputProvider);
+            outputProvider = (CookiesSaver) BeanHelper.INSTANCE.createBean(beanOutputProvider);
     }
 
     private static Integer selectWebsite(List<String> websites) {

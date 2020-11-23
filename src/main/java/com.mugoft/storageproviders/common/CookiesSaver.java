@@ -1,12 +1,12 @@
 package com.mugoft.storageproviders.common;
 
-public abstract class StorageProvider {
+public abstract class CookiesSaver {
     /**
      * Output path  where cookies should be stored
      */
     protected final String outPath;
 
-    public StorageProvider(String outPath) {
+    public CookiesSaver(String outPath) {
         this.outPath = outPath;
     }
 

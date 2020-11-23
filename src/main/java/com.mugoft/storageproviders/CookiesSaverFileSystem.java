@@ -1,6 +1,6 @@
 package com.mugoft.storageproviders;
 
-import com.mugoft.storageproviders.common.StorageProvider;
+import com.mugoft.storageproviders.common.CookiesSaver;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -11,9 +11,9 @@ import java.nio.file.Files;
 /**
  * Output provider which stores cookies using local filesystem
  */
-public class FileSystemStorageProvider extends StorageProvider {
+public class CookiesSaverFileSystem extends CookiesSaver {
 
-    public FileSystemStorageProvider(String outPath) {
+    public CookiesSaverFileSystem(String outPath) {
         super(outPath);
     }
 
