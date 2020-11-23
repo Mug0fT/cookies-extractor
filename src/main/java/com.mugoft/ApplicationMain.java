@@ -12,6 +12,12 @@ import org.apache.commons.configuration2.ex.ConfigurationException;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @author mugoft
+ * @created 22/11/2020 - 19:36
+ * @project cookiesextractor
+ */
+
 public class ApplicationMain {
 
     final static Scanner SCANNER = new Scanner(System.in);
