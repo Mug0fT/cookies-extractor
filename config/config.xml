@@ -35,6 +35,7 @@
         </сookiesGenerator>
         <outputProvider config-class="com.mugoft.storageproviders.S3BucketStorageProvider">
             <config-constrarg config-value="cookies/wikipedia_mainpage_singlerequest_s3/cookies.json"/>
+            <config-constrarg config-value="realestate-parser-bucket"/>
         </outputProvider>
     </website>
     <website name="wikipedia_local">
