@@ -8,7 +8,7 @@
         </сookiesGenerator>
 
         <outputProvider config-class="com.mugoft.storageproviders.FileSystemStorageProvider">
-                <config-constrarg config-value="C:\Project\cookies\google_recaptcha_demo_selenium\cookies.json" config-type="java.lang.String"/>
+                <config-constrarg config-value="C:\Project\cookies\google_recaptcha_demo_selenium\cookies.json"/>
         </outputProvider>
     </website>
     <website name="wikipedia_selenium">
@@ -27,6 +27,14 @@
         </сookiesGenerator>
         <outputProvider config-class="com.mugoft.storageproviders.FileSystemStorageProvider">
             <config-constrarg config-value="C:\Project\cookies\wikipedia_mainpage_singlerequest\cookies.json"/>
+        </outputProvider>
+    </website>
+    <website name="wikipedia_mainpage_singlerequest_s3">
+        <сookiesGenerator config-class="com.mugoft.extractors.CookiesExtractorSingleRequest">
+            <config-constrarg config-value="https%3A%2F%2Fwww.wikipedia.org%2F"/>
+        </сookiesGenerator>
+        <outputProvider config-class="com.mugoft.storageproviders.S3BucketStorageProvider">
+            <config-constrarg config-value="cookies/wikipedia_mainpage_singlerequest_s3/cookies.json"/>
         </outputProvider>
     </website>
     <website name="wikipedia_local">
