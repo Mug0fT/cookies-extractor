@@ -36,7 +36,7 @@ public class CookiesSaverS3Bucket extends CookiesSaver {
 
             ObjectMetadata metadata = new ObjectMetadata();
             metadata.setContentType("plain/text");
-            metadata.addUserMetadata("title", "someTitle");
+            metadata.addUserMetadata("cookies", "");
             PutObjectRequest request = new PutObjectRequest(bucketName, outPath, IOUtils.toInputStream(jsonCookies, StandardCharsets.UTF_8.name()), metadata);
             s3client.putObject(request);
         } catch (AmazonServiceException ex) {
