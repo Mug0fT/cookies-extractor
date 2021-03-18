@@ -61,7 +61,6 @@ public class CookiesExtractorLocalChrome extends CookiesExtractor {
         return result;
     }
 
-
     /**
      *
      * @param valueEncrypted
@@ -246,52 +245,4 @@ public class CookiesExtractorLocalChrome extends CookiesExtractor {
             System.out.println(ex.getMessage());
         }
     }
-
-    //    /**
-//     * decrypt using JDPAPI http://jdpapi.sourceforge.net/
-//     *
-//     * @param valueEncrypted value do decrypt
-//     * @return decrypted value if success, valueEncrypted otherwise
-//     */
-//    private String decryptValueWindows(byte[] valueEncrypted, String valueEncryptedStr) {
-//        String valueDecrypted = new String(valueEncrypted);
-//
-//        if(isJdpapiLoaded == null) {
-//            isJdpapiLoaded = false;
-//            // First try to load 32 bit version
-//            try {
-//                System.loadLibrary("jdpapi32");
-//                isJdpapiLoaded = true;
-//            } catch (UnsatisfiedLinkError | Exception ex) {
-//                System.out.println("Couldn't load 32 Bit version of jdpapi: jdpapi32.dll");
-//                System.out.println(ex);
-//            }
-//
-//            // Then try to load 64 bit version
-//            try {
-//                System.loadLibrary("jdpapi64");
-//                isJdpapiLoaded = true;
-//            } catch (UnsatisfiedLinkError | Exception ex) {
-//                System.out.println("Couldn't load 64 Bit version of jdpapi: jdpapi64.dll.");
-//                System.out.println("All encrypted cookie values will be stored as it is encrypted: failed to load decryption library");
-//                System.out.println(ex);
-//            }
-//        }
-//
-//        if(isJdpapiLoaded) {
-//            try {
-//                net.sourceforge.jdpapi.DataProtector dpapi = new net.sourceforge.jdpapi.DataProtector(true);
-//
-//                 byte[] decodeBase64 = Base64.decodeBase64(valueEncrypted);
-//                valueDecrypted = dpapi.unprotect(decodeBase64);
-//            } catch (Exception e) {
-//                net.sourceforge.jdpapi.DataProtector dpapi = new net.sourceforge.jdpapi.DataProtector(true);
-//                byte[] decodeBase64 = Base64.decodeBase64(valueEncryptedStr.getBytes());
-//                valueDecrypted = dpapi.unprotect(decodeBase64);
-//                System.out.println("Was not able to decrypt encrypted value" );
-//            }
-//        }
-//
-//        return valueDecrypted;
-//    }
 }

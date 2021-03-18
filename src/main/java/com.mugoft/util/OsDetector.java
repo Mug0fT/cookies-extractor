@@ -15,6 +15,9 @@ public class OsDetector {
     public static OS getOS() {
         if (os == null) {
             String operSys = System.getProperty("os.name").toLowerCase();
+            if (operSys == null) {
+                operSys = "";
+            }
             if (operSys.contains("win")) {
                 os = OS.WINDOWS;
             } else if (operSys.contains("nix") || operSys.contains("nux")
