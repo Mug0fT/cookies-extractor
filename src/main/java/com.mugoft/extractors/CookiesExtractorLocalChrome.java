@@ -32,6 +32,17 @@ import com.sun.jna.platform.win32.Crypt32Util;
  * @created 22/11/2020 - 11:54
  * @project cookiesextractor
  */
+
+/**
+ * Reads cookies from local chrome repository. The implementation is OS specific and Chrome versions specific.
+ * Currently supported OS and Chrome Versions:
+ * - Windows
+ *  -- chrome under version 80
+ * - LINUX
+ * - MAC
+ *
+ * For wider use cases, and more reliable cookies extraction, please use external apps, e.g. http://www.editthiscookie.com/
+ */
 public class CookiesExtractorLocalChrome extends CookiesExtractor {
 
     private final String hostKey;
